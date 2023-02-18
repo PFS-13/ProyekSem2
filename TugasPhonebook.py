@@ -126,6 +126,16 @@ def deleteContact() :
     else :
         print("Tidak ditemukan kontak '" + nama + "'")
         os.system("pause")
+def searchContact() :
+    name = input("Masukkan nama kontak yang ingin dicari : ")
+    if isNameExist(name):
+        data = getContact(name)
+        print("Nama \t: " + data["Nama"])
+        print("Nomor \t: " + data["NO"])
+    else :
+        print("Nama tersebut tidak terdaftar")
+    os.system("pause")
+            
 choice = 1
 while (choice is not 0) :
     os.system("cls")
@@ -133,9 +143,10 @@ while (choice is not 0) :
     print(" "*10 + "PHONE BOOK")
     print("="*30)
     print("\n1.Lihat list Nomor Telephone")
-    print("\n2.Tambah Nomor Telephone")
-    print("\n3.Update Nomor Telephone")
-    print("\n4.Delete Nomor Telephone")
+    print("\n2.Tambah Kontak")
+    print("\n3.Ubah Kontak")
+    print("\n4.Hapus Kontak")
+    print("\n5.Cari Kontak")
     print("\n0.Keluar")
     choice = int(input("\n\nMasukkan pilihan anda : "))
     os.system("clear")
@@ -147,6 +158,8 @@ while (choice is not 0) :
         updateContact()
     elif choice is 4 : 
         deleteContact()
+    elif choice is 5 :
+        searchContact()
     elif choice is 0 :
         exit
     else :
